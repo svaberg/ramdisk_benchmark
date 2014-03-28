@@ -1,0 +1,20 @@
+if (!exists("max_threads")) max_threads=2
+
+set title "Write to disk with fwrite()"
+set xlabel "File size [Mb]"
+set ylabel "Time [s]"
+set log x 2
+set log y 10
+set format y "%4.2f"
+set key inside left
+set grid xtics ytics
+
+plot "harddisk.txt" every ::2 title "  HDD" with lines, \
+     "ramdisk.txt" every ::2 title  "  RAM" with lines
+
+set terminal png size 600,400 enhanced  font "Helvetica,10"
+set output 'results.png'
+
+plot "harddisk.txt" every ::2 title "  HDD" with lines, \
+     "ramdisk.txt" every ::2 title  "  RAM" with lines
+
