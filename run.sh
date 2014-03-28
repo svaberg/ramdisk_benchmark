@@ -9,9 +9,9 @@ do
   echo -e "size\treal\tuser\tsys" > "${OUT_FOLDER}.txt"
   for SIZE in "${SIZE_ARRAY[@]}"
   do
-    echo "${SIZE}"
     /usr/bin/time --output="${OUT_FOLDER}.txt" --append --format="${SIZE}\t%e\t%U\t%S"  ./test ${SIZE} "${OUT_FOLDER}/out.bin"
     ls -alh "${OUT_FOLDER}/out.bin"
+    rm "${OUT_FOLDER}/out.bin"
   done
 done
 
